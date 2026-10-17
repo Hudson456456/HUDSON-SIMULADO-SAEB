@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina Mecânica - Ordens de Serviço</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="principal.html" class="marca">🔧 Oficina Mecânica</a>
+        <a href="principal.html">← Início</a>
+    </header>
+
+    <main>
+        <h1>Ordens de Serviço</h1>
+
+        <p id="mensagem-ordens" class="texto-apagado">Carregando ordens de serviço...</p>
+        <table id="tabela-ordens" class="escondido">
+            <thead>
+                <tr>
+                    <th>Data de abertura</th>
+                    <th>Veículo</th>
+                    <th>Placa</th>
+                    <th>Cliente</th>
+                    <th>Telefone do cliente</th>
+                    <th>Descrição</th>
+                    <th class="tabela-acoes">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela-ordens"></tbody>
+        </table>
+    </main>
+
+    <script src="js/ordens.js"></script>
+</body>
+</html>

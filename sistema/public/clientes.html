@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina Mecânica - Clientes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="principal.html" class="marca">🔧 Oficina Mecânica</a>
+        <a href="principal.html">← Início</a>
+    </header>
+
+    <main>
+        <h1>Clientes</h1>
+
+        <div class="busca">
+            <input type="text" id="input-busca" placeholder="Buscar cliente por nome...">
+            <button id="btn-buscar" class="botao-secundario">Buscar</button>
+        </div>
+
+        <div class="caixa">
+            <h2>Novo Cliente</h2>
+            <form id="form-cliente">
+                <input type="hidden" id="cliente-id">
+                <div class="campos">
+                    <div class="campo">
+                        <label for="cliente-nome">Nome</label>
+                        <input type="text" id="cliente-nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cliente-cpf">CPF</label>
+                        <input type="text" id="cliente-cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="campo">
+                        <label for="cliente-telefone">Telefone</label>
+                        <input type="text" id="cliente-telefone">
+                    </div>
+                </div>
+                <div class="acoes-formulario">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="btn-cancelar-edicao" class="botao-secundario escondido">Cancelar edição</button>
+                </div>
+            </form>
+        </div>
+
+        <p id="mensagem-clientes" class="texto-apagado">Carregando clientes...</p>
+        <table id="tabela-clientes" class="escondido">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th class="tabela-acoes">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela-clientes"></tbody>
+        </table>
+    </main>
+
+    <script src="js/clientes.js"></script>
+</body>
+</html>

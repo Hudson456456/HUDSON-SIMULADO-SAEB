@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina Mecânica - Veículos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="principal.html" class="marca">🔧 Oficina Mecânica</a>
+        <a href="principal.html">← Início</a>
+    </header>
+
+    <main>
+        <h1>Veículos</h1>
+
+        <div class="caixa">
+            <h2>Novo Veículo</h2>
+            <form id="form-veiculo">
+                <div class="campos">
+                    <div class="campo">
+                        <label for="veiculo-placa">Placa</label>
+                        <input type="text" id="veiculo-placa" required>
+                    </div>
+                    <div class="campo">
+                        <label for="veiculo-modelo">Modelo</label>
+                        <input type="text" id="veiculo-modelo" placeholder="Ex: Fiat Uno">
+                    </div>
+                    <div class="campo">
+                        <label for="veiculo-cliente">Cliente</label>
+                        <select id="veiculo-cliente" required>
+                            <option value="">Carregando clientes...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="acoes-formulario">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+            <p id="mensagem-veiculo"></p>
+        </div>
+    </main>
+
+    <script src="js/veiculos.js"></script>
+</body>
+</html>

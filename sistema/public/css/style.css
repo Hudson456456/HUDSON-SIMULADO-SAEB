@@ -1,0 +1,230 @@
+/* ============================================================
+   public/css/style.css
+   ============================================================
+   Este arquivo já está pronto (BASE FORNECIDA).
+   CSS puro, sem framework. Pode alterar à vontade.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+a {
+    color: #1f5fa8;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #1f5fa8;
+    color: #fff;
+}
+
+.cabecalho a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cabecalho .marca {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ---------- Conteúdo ---------- */
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.caixa {
+    background-color: #fff;
+    border: 1px solid #dde2e8;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.caixa h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+/* ---------- Formulários ---------- */
+
+.campos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+input,
+select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #b8c0c8;
+    border-radius: 4px;
+}
+
+.acoes-formulario {
+    margin-top: 16px;
+}
+
+.busca {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    max-width: 500px;
+}
+
+.busca input {
+    flex: 1;
+}
+
+/* ---------- Botões ---------- */
+
+button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1f5fa8;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.botao-secundario {
+    background-color: #6c757d;
+}
+
+.botao-perigo {
+    background-color: #c0392b;
+}
+
+.botao-claro {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+/* ---------- Tabelas ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dde2e8;
+}
+
+th {
+    background-color: #eef1f4;
+}
+
+.tabela-acoes {
+    white-space: nowrap;
+    width: 1%;
+}
+
+/* ---------- Tela de login ---------- */
+
+.login {
+    max-width: 380px;
+    margin: 10vh auto 0;
+}
+
+.login h1 {
+    text-align: center;
+}
+
+.login .campo {
+    margin-bottom: 12px;
+}
+
+.login button {
+    width: 100%;
+}
+
+/* ---------- Tela principal (menu) ---------- */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.menu a {
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu a:hover .caixa {
+    border-color: #1f5fa8;
+}
+
+/* ---------- Mensagens ---------- */
+
+.mensagem-erro {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fdecea;
+    color: #c0392b;
+}
+
+.texto-sucesso {
+    color: #1e8449;
+}
+
+.texto-erro {
+    color: #c0392b;
+}
+
+.texto-apagado {
+    color: #6c757d;
+}
+
+/* Use para esconder/mostrar elementos pelo JavaScript:
+   elemento.classList.add("escondido") / .remove("escondido") */
+.escondido {
+    display: none;
+}

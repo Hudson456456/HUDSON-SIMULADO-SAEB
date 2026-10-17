@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo - Biblioteca</title>
+    <link rel="stylesheet" href="../../public/css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Exemplo: Biblioteca (livros)</h1>
+
+        <div class="busca">
+            <input type="text" id="input-busca" placeholder="Buscar por título...">
+            <button id="btn-buscar" class="botao-secundario">Buscar</button>
+        </div>
+
+        <div class="caixa">
+            <h2>Novo / Editar Livro</h2>
+            <form id="form-livro">
+                <input type="hidden" id="livro-id">
+                <div class="campos">
+                    <div class="campo">
+                        <label for="livro-titulo">Título</label>
+                        <input type="text" id="livro-titulo" required>
+                    </div>
+                    <div class="campo">
+                        <label for="livro-autor">Autor</label>
+                        <input type="text" id="livro-autor">
+                    </div>
+                    <div class="campo">
+                        <label for="livro-categoria">Categoria</label>
+                        <select id="livro-categoria" required>
+                            <option value="">Carregando...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="acoes-formulario">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="btn-cancelar" class="botao-secundario escondido">Cancelar edição</button>
+                </div>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Título</th><th>Autor</th><th>Categoria</th><th class="tabela-acoes">Ações</th></tr>
+            </thead>
+            <tbody id="corpo-tabela"></tbody>
+        </table>
+    </main>
+
+    <script src="livros.js"></script>
+</body>
+</html>
