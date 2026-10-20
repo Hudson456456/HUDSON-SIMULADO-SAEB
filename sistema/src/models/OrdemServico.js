@@ -1,25 +1,21 @@
-// ============================================================
-// src/models/OrdemServico.js
-// ============================================================
-// ESTE ARQUIVO É COM VOCÊS (ALUNO DESENVOLVE).
-//
-// Lembrete sobre o JOIN: o cliente não está diretamente ligado à
-// ordem de serviço - o caminho é ordens_servico -> veiculos ->
-// clientes. Veja exemplos/exemplo-join-multiplas-tabelas.sql.
-// ============================================================
-
 const { conectarComBancoDeDados } = require("../db/conexao");
 
 class OrdemServicoModel {
-    // Lista as ordens ordenadas pela data de abertura, trazendo
-    // também os dados do veículo e do cliente.
     async buscarTodas() {
         const conexaoComBanco = await conectarComBancoDeDados();
 
-        // TODO: montar a query com JOIN (ordens_servico -> veiculos
-        // -> clientes) e ORDER BY pela data de abertura
-
-        const ordens = await conexaoComBanco.all("SELECT * FROM ordens_servico"); // TODO: ajustar
+        const ordens = await conexaoComBanco.all(
+            `SELECT ordens_servico.*,
+                    veiculos.placa AS veiculo_placa,
+                    veiculos.modelo AS veiculo_modelo,
+                    clientes.id AS cliente_id,
+                    clientes.nome AS cliente_nome,
+                    clientes.telefone AS cliente_telefone
+             FROM ordens_servico
+             INNER JOIN veiculos ON ordens_servico.veiculo_id = veiculos.id
+             INNER JOIN clientes ON veiculos.cliente_id = clientes.id
+             ORDER BY ordens_servico.data_abertura`
+        );
 
         return ordens;
     }
@@ -27,8 +23,12 @@ class OrdemServicoModel {
     async atualizarDataAbertura(id, data_abertura) {
         const conexaoComBanco = await conectarComBancoDeDados();
 
-        // TODO: montar o UPDATE, filtrando por WHERE id = ?
-        // e devolver quantas linhas foram alteradas (resultado.changes)
+        const resultado = await conexaoComBanco.run(
+            "UPDATE ordens_servico SET data_abertura = ? WHERE id = ?",
+            [data_abertura, id]
+        );
+
+        return resultado.changes;
     }
 }
 

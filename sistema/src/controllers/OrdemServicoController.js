@@ -1,16 +1,6 @@
-// ============================================================
-// src/controllers/OrdemServicoController.js
-// ============================================================
-// ESTE ARQUIVO É COM VOCÊS (ALUNO DESENVOLVE).
-// ============================================================
-
 const { OrdemServicoModel } = require("../models/OrdemServico");
 
 class OrdemServicoController {
-    // ─────────────────────────────────────────
-    // GET /api/ordens -> listar ordens de serviço ordenadas por
-    // data de abertura, com dados do veículo e do cliente
-    // ─────────────────────────────────────────
     async listar(req, res) {
         try {
             const ordens = await new OrdemServicoModel().buscarTodas();
@@ -21,20 +11,22 @@ class OrdemServicoController {
         }
     }
 
-    // ─────────────────────────────────────────
-    // PUT /api/ordens/:id -> atualizar a data de abertura de uma ordem
-    // ─────────────────────────────────────────
     async atualizarDataAbertura(req, res) {
         try {
             const { id } = req.params;
             const { data_abertura } = req.body;
 
-            // TODO: validar que data_abertura foi informada (400)
+            if (!data_abertura) {
+                return res.status(400).json({ erro: "Informe a data de abertura." });
+            }
 
-            // TODO: chamar new OrdemServicoModel().atualizarDataAbertura(...)
-            // Se nenhuma linha foi alterada -> 404
+            const alteradas = await new OrdemServicoModel().atualizarDataAbertura(id, data_abertura);
 
-            return res.status(200).json({}); // TODO: devolver uma confirmação
+            if (!alteradas) {
+                return res.status(404).json({ erro: "Ordem de serviço não encontrada." });
+            }
+
+            return res.status(200).json({ mensagem: "Data de abertura atualizada com sucesso." });
         } catch (erro) {
             return res.status(500).json({ erro: erro.message });
         }
